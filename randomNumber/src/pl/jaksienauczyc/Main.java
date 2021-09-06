@@ -1,34 +1,41 @@
 package pl.jaksienauczyc;
 
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-        Random random = new Random();
-        int numberToGuess = random.nextInt(100) + 1;
 
-        Scanner scanner = new Scanner(System.in);
+        int iloscLiczb =5, suma=0, i, liczba, min, max;
 
-        boolean wasNumberGuessed = false;
+        System.out.println("Program losuje " + iloscLiczb + " liczb calkowitych od 0 do 99");
+        System.out.println(" a następnie znajduje najmniejszą i największą");
+        System.out.println("oraz oblicza średnią z wylosowanych liczb");
+        Random r = new Random();
+        max = r.nextInt(100);
+        System.out.print("wylosowano liczby: " );
 
-        System.out.println("Podaj liczbę od 0 do 100");
 
-        while (!wasNumberGuessed) {
 
-            int userNumber = scanner.nextInt();
-            if (userNumber > numberToGuess) {
-                System.out.println("Podaj mniejszą liczbę");
-            } else if (userNumber < numberToGuess) {
-                System.out.println("Podaj większą liczbę");
-            } else {
-                        System.out.println( "Brawo zgadłeś");
-                        wasNumberGuessed = true;
-                    }
-                }
-            }
+        for (i = 1; i <= iloscLiczb; i++)
+        {
+            liczba= r.nextInt(100);
+            System.out.print(liczba + ", ");
+
+            if (max < liczba) max = liczba;
+            if (liczba < min) min = liczba;
+
+            suma +=liczba;
         }
+        System.out.println();
+        System.out.println("najmniejsza liczba to " + min);
+        System.out.println("największa liczba to " + max);
+
+    }
+}
+
+
+
 
 
 
